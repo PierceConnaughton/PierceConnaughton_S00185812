@@ -17,7 +17,7 @@ namespace DataManagmentFinalTest
 
             //create the phones dont need too create phone ID as it will add itself
             Phone p1 = new Phone("Samsung_520", 500, "Android", "/images/android.png", "/images/s20.jpg");
-            Phone p2 = new Phone("iPhone 11", 600, "IOS", "/images/apple.png", "/images/iphone11.jpg");
+            Phone p2 = new Phone("iPhone 11", 600, "IOS", "/images/apple.png", "/images/iphone11.png");
 
             
            
