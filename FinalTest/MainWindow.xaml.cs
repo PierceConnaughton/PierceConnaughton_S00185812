@@ -22,7 +22,7 @@ namespace FinalTest
     {
 
         PhoneData db = new PhoneData();
-
+        List<Phone> phones = new List<Phone>();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,39 +35,33 @@ namespace FinalTest
 
         public void loadDatabase()
         {
+            foreach (Phone phone in db.phones)
+            {
+                phones.Add(phone);
+            }
 
-            //get all players from the page
-            var query = from p in db.phones
-                        select new
-                        {
-                            p.OS_Image,
-                            p.Name
-                        };
-
-
-            //display them in a list
-            lstBxPhones.ItemsSource = query.ToList();
+            lstBxPhones.ItemsSource = phones;
         }
 
-        public void selectedPhoneData(string name)
+        
+        private void lstBxPhones_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var query = from p in db.phones
-                        where p.Name == name
-                        select new
-                        {
-                            p.Price
-                        };
+            Phone SelectedPhone = lstBxPhones.SelectedItem as Phone;
+           
+            if (SelectedPhone != null)
+            {
+                string price = string.Format("{0:C}", SelectedPhone.Price.ToString());
+                txtBlPrice.Text = price;
 
-            txtBlPrice.Text = query.ToString();
+                Uri uri = new Uri(SelectedPhone.Phone_Image, UriKind.Relative);
+                ImageSource imgSource = new BitmapImage(uri);
+                imgPhone.Source = imgSource;
+            }
+            else
+            {
+                MessageBox.Show("Nothing Selected");
+            }
 
-            var query2 = from p in db.phones
-                         where p.Name == name
-                         select new
-                         {
-                             p.Phone_Image
-                         };
-
-            imgPhone.Source = prop.p;
         }
     }
 }

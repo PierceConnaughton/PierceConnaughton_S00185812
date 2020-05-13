@@ -46,11 +46,11 @@ namespace FinalTest
         #endregion constructors
 
         #region Methods
-        public int IncreasePrice(int percentage)
+        public int IncreasePrice(double percentage)
         {
-            percentage = percentage / 100;
+            
+            //Price = Price * (1 + (percentage / 100));
 
-            Price = Price * percentage;
 
             return Price;
         }
