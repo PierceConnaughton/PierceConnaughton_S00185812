@@ -28,8 +28,8 @@
     <Grid>
         <ListBox x:Name="lstBxPhones" HorizontalAlignment="Left" Height="223" VerticalAlignment="Top" Width="253" Margin="52,60,0,0"
                  ItemTemplate="{StaticResource listboxTemplate}" SelectionChanged="lstBxPhones_SelectionChanged"/>
-        <TextBlock x:Name="txtBlPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="557,60,0,0"/>
-        <Image x:Name="imgPhone" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="142" Margin="557,136,0,0"/>
+        <TextBlock x:Name="txtBlPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="557,60,0,0" FontSize="48"/>
+        <Image x:Name="imgPhone" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="142" Margin="557,151,0,0"/>
 
     </Grid>
 </Window>

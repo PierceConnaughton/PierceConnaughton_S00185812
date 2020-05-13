@@ -12,6 +12,7 @@ namespace FinalTest
     public class Phone
     {
         #region properties
+        //phoneId property needed for database
         public int PhoneID { get; set; }
         public string Name { get; set; }
 
@@ -23,6 +24,7 @@ namespace FinalTest
 
         public string Phone_Image { get; set; }
 
+        //creates a virtual list for all of the phones
         public virtual List<Phone> Phones { get; set; }
 
         #endregion properties
@@ -46,21 +48,25 @@ namespace FinalTest
         #endregion constructors
 
         #region Methods
-        public int IncreasePrice(double percentage)
+        public double IncreasePrice(double percentage)
         {
-            
-            //Price = Price * (1 + (percentage / 100));
+            //increase price method which creates a double that gets price multiplys it by 1 + (percentage divided by 100) too get the new price 
+            double newPrice = (Price * (1 + (percentage / 100)));
 
-
+            Price = (int)newPrice;
             return Price;
         }
 
         #endregion Methods
     }
 
+    
     public class PhoneData : DbContext
     {
+        //creates the database
         public PhoneData() : base("PhoneDetails") { }
+
+        //Creates the Phones table
         public DbSet<Phone> phones { get; set; }
     }
 }
