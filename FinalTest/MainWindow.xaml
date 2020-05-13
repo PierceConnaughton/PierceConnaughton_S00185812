@@ -13,20 +13,32 @@
     <Window.Resources>
         <DataTemplate x:Key="listboxTemplate">
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Image Source="{Binding StudentImage}" Width="75" />
+                <Image Source="{Binding OS_Image}" Width="75" />
 
                 <StackPanel>
-                    <TextBlock Text="{Binding StudentName}" Margin="5" FontSize="12" />
-                    <TextBlock Text="{Binding StudentNumber}" Margin="5" FontSize="12" />
-                    <TextBlock Text="{Binding GPA}" Margin="5" Background="{Binding GPA_Colour}"  FontSize="12" />
+                    <TextBlock Text="{Binding Name}" Margin="5" FontSize="12" />
                 </StackPanel>
 
             </StackPanel>
 
         </DataTemplate>
+
+        <DataTemplate x:Key="textBxTemplate">
+            <StackPanel Orientation="Horizontal" Margin="5">
+
+
+                <StackPanel>
+                    <TextBlock Text="{Binding price}" Margin="5" FontSize="12" />
+                </StackPanel>
+                <Image Source="{Binding Phone_Image}" Width="75" />
+            </StackPanel>
+
+        </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="lstBx" HorizontalAlignment="Left" Height="223" VerticalAlignment="Top" Width="253" Margin="52,60,0,0"/>
+        <ListBox x:Name="lstBxPhones" HorizontalAlignment="Left" Height="223" VerticalAlignment="Top" Width="253" Margin="52,60,0,0"/>
+        <TextBlock x:Name="txtBlPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="557,60,0,0"/>
+        <Image x:Name="imgPhone" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="142" Margin="557,136,0,0"/>
 
     </Grid>
 </Window>

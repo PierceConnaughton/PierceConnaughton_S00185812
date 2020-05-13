@@ -21,6 +21,7 @@ namespace FinalTest
     public partial class MainWindow : Window
     {
 
+        PhoneData db = new PhoneData();
 
         public MainWindow()
         {
@@ -29,7 +30,17 @@ namespace FinalTest
 
         private void MainWindow1_Loaded(object sender, RoutedEventArgs e)
         {
+            //get all players from the page
+            var query = from p in db.phones
+                        select new
+                        {
+                            p.OS_Image,
+                            p.Name
+                        };
+                        
 
+            //display them in a list
+            lstBxPhones.ItemsSource = query.ToList();
         }
     }
 }
