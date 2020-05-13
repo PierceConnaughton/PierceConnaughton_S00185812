@@ -20,8 +20,10 @@ namespace FinalTest
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        //get the phone database
         PhoneData db = new PhoneData();
+
+        //get a list of phones
         List<Phone> phones = new List<Phone>();
         public MainWindow()
         {
@@ -30,27 +32,33 @@ namespace FinalTest
 
         private void MainWindow1_Loaded(object sender, RoutedEventArgs e)
         {
+            //load the database
             loadDatabase();
         }
 
         public void loadDatabase()
         {
+            //foreach phone in the database add it too the phones list
             foreach (Phone phone in db.phones)
             {
                 phones.Add(phone);
             }
 
+            //display phones list
             lstBxPhones.ItemsSource = phones;
         }
 
         
         private void lstBxPhones_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //get selectedPhone
             Phone SelectedPhone = lstBxPhones.SelectedItem as Phone;
            
+            //if SelectedPhone is not equal too nothing
             if (SelectedPhone != null)
             {
-                string price = string.Format("{0:C}", SelectedPhone.Price.ToString());
+                //dislay the price and the phone image
+                string price = string.Format("{0:C}", SelectedPhone.Price);
                 txtBlPrice.Text = price;
 
                 Uri uri = new Uri(SelectedPhone.Phone_Image, UriKind.Relative);
@@ -59,6 +67,7 @@ namespace FinalTest
             }
             else
             {
+                //if nothing is selected display this message
                 MessageBox.Show("Nothing Selected");
             }
 
