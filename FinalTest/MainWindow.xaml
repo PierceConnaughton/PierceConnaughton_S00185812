@@ -23,20 +23,11 @@
 
         </DataTemplate>
 
-        <DataTemplate x:Key="textBxTemplate">
-            <StackPanel Orientation="Horizontal" Margin="5">
-
-
-                <StackPanel>
-                    <TextBlock Text="{Binding price}" Margin="5" FontSize="12" />
-                </StackPanel>
-                <Image Source="{Binding Phone_Image}" Width="75" />
-            </StackPanel>
-
-        </DataTemplate>
+        
     </Window.Resources>
     <Grid>
-        <ListBox x:Name="lstBxPhones" HorizontalAlignment="Left" Height="223" VerticalAlignment="Top" Width="253" Margin="52,60,0,0"/>
+        <ListBox x:Name="lstBxPhones" HorizontalAlignment="Left" Height="223" VerticalAlignment="Top" Width="253" Margin="52,60,0,0"
+                 ItemTemplate="{StaticResource listboxTemplate}"/>
         <TextBlock x:Name="txtBlPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="557,60,0,0"/>
         <Image x:Name="imgPhone" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="142" Margin="557,136,0,0"/>
 
